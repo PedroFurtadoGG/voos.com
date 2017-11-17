@@ -23,7 +23,7 @@ public class LoginDAO extends Conexao{
         OpenDatabase();
         
          String sql = "INSERT INTO usuarios(nome,email,senha,tipo,dob,telefone,cpf)" +
- " VALUES(?,?,?,?,?,?,?)";
+                            " VALUES(?,?,?,?,?,?,?)";
          
          ps = con.prepareStatement(sql);
          ps.setString(1, lg.getNome());
