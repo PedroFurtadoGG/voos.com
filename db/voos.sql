@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 19-Nov-2017 às 16:23
+-- Generation Time: 21-Nov-2017 às 22:17
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -54,7 +54,7 @@ CREATE TABLE `avioes` (
 --
 
 CREATE TABLE `cidades` (
-  `id_cidade` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id_cidade` int(10) UNSIGNED NOT NULL,
   `uf` varchar(2) NOT NULL DEFAULT '',
   `nome` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -66,7 +66,7 @@ CREATE TABLE `cidades` (
 --
 
 CREATE TABLE `passagens` (
-  `id_passagem` int(11) NOT NULL DEFAULT '0',
+  `id_passagem` int(11) NOT NULL,
   `portao_embarque` varchar(4) NOT NULL DEFAULT '',
   `status` varchar(20) NOT NULL DEFAULT '',
   `classe` varchar(20) NOT NULL DEFAULT '',
@@ -84,7 +84,7 @@ CREATE TABLE `passagens` (
 --
 
 CREATE TABLE `poltronas` (
-  `id_poltrona` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id_poltrona` int(10) UNSIGNED NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT '',
   `tipo` varchar(30) NOT NULL DEFAULT '',
   `nome` varchar(50) NOT NULL DEFAULT '',
@@ -117,7 +117,7 @@ CREATE TABLE `reservas` (
 --
 
 CREATE TABLE `usuarios` (
-  `id_usuario` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id_usuario` int(10) UNSIGNED NOT NULL,
   `email` varchar(50) NOT NULL DEFAULT '',
   `nome` varchar(50) NOT NULL DEFAULT '',
   `senha` varchar(10) NOT NULL DEFAULT '',
@@ -134,7 +134,7 @@ CREATE TABLE `usuarios` (
 --
 
 CREATE TABLE `voos` (
-  `id_voo` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id_voo` int(10) UNSIGNED NOT NULL,
   `status` varchar(50) NOT NULL DEFAULT '',
   `id_aviao` int(10) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -167,8 +167,8 @@ ALTER TABLE `cidades`
 --
 ALTER TABLE `passagens`
   ADD PRIMARY KEY (`id_passagem`),
-  ADD KEY `fk_voo` (`id_voo`),
-  ADD KEY `fk_reserva` (`id_reserva`);
+  ADD KEY `fk_reserva` (`id_reserva`),
+  ADD KEY `fk_voo` (`id_voo`);
 
 --
 -- Indexes for table `poltronas`
@@ -182,9 +182,9 @@ ALTER TABLE `poltronas`
 --
 ALTER TABLE `reservas`
   ADD PRIMARY KEY (`id_reserva`),
-  ADD KEY `fk_usuario` (`id_usuario`),
   ADD KEY `fk_aeroporto` (`id_aeroporto`),
-  ADD KEY `fk_poltrona` (`id_poltrona`);
+  ADD KEY `fk_poltrona` (`id_poltrona`),
+  ADD KEY `fk_usuario` (`id_usuario`);
 
 --
 -- Indexes for table `usuarios`
@@ -214,10 +214,35 @@ ALTER TABLE `aeroportos`
 ALTER TABLE `avioes`
   MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `cidades`
+--
+ALTER TABLE `cidades`
+  MODIFY `id_cidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `passagens`
+--
+ALTER TABLE `passagens`
+  MODIFY `id_passagem` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `poltronas`
+--
+ALTER TABLE `poltronas`
+  MODIFY `id_poltrona` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
   MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `voos`
+--
+ALTER TABLE `voos`
+  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -226,7 +251,7 @@ ALTER TABLE `reservas`
 -- Limitadores para a tabela `aeroportos`
 --
 ALTER TABLE `aeroportos`
-  ADD CONSTRAINT `fk_cidade` FOREIGN KEY (`id_cidade`) REFERENCES `cidades` (`id_cidade`);
+  ADD CONSTRAINT `fk_cidades` FOREIGN KEY (`id_cidade`) REFERENCES `cidades` (`id_cidade`);
 
 --
 -- Limitadores para a tabela `passagens`
