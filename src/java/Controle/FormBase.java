@@ -5,6 +5,7 @@
  */
 package Controle;
 
+import Html.GeraHTML;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import modelo.Usuario;
@@ -14,7 +15,7 @@ import persistencia.UsuarioDAO;
  *
  * @author Lenovo
  */
-public class FormBase {
+public class FormBase extends GeraHTML {
     public String efetuarLogin(HttpServletRequest req){
         try {
             String uEmail = req.getParameter("email");
