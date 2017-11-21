@@ -7,6 +7,7 @@ package Controle;
 
 import Html.GeraHTML;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import modelo.Usuario;
 import persistencia.UsuarioDAO;
@@ -16,7 +17,7 @@ import persistencia.UsuarioDAO;
  * @author Lenovo
  */
 public class FormBase extends GeraHTML {
-    public String efetuarLogin(HttpServletRequest req){
+    public String efetuarLogin(HttpServletRequest req, HttpServletResponse res){
         try {
             String uEmail = req.getParameter("email");
             String uSenha = req.getParameter("senha");
@@ -31,7 +32,7 @@ public class FormBase extends GeraHTML {
             session.setAttribute("PjtLoginFiltro_logado", true);
             session.setAttribute("PjtLoginFiltro_nome", u.getNome());
             session.setAttribute("PjtLoginFiltro_cargo", u.getTipo());
-            req.getRequestDispatcher("index.jsp");  
+            res.sendRedirect("index.jsp"); 
             return "Login efetuado com sucesso" + session;
             
         } catch (Exception ex) {
