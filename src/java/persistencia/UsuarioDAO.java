@@ -8,7 +8,7 @@ package persistencia;
 import Conexao.Conexao;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import model.Login;
+import model.Usuarios;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,10 +16,10 @@ import java.util.List;
  *
  * @author aluno
  */
-public class LoginDAO extends Conexao{
+public class UsuarioDAO extends Conexao{
    
     
-    public void addUsuario(Login lg) throws Exception{
+    public void addUsuario(Usuarios lg) throws Exception{
         OpenDatabase();
         
          String sql = "INSERT INTO usuarios(nome,email,senha,tipo,dob,telefone,cpf)" +
@@ -50,7 +50,7 @@ public class LoginDAO extends Conexao{
         CloseDatabase();
     }
     
-    public void updateUsuario(Login lg) throws Exception{
+    public void updateUsuario(Usuarios lg) throws Exception{
         
         String sql = "UPDATE usuarios SET nome=?,email=?,senha=?,tipo=?,dob=?,telefone=?,cpf=?" +
  " WHERE cpf = ?";
@@ -68,17 +68,17 @@ public class LoginDAO extends Conexao{
         CloseDatabase();
     }
     
-    public List<Login> getUsuarios() throws Exception{
+    public List<Usuarios> getUsuarios() throws Exception{
         OpenDatabase();
         
         String sql = "SELECT * FROM usuarios";
         
-        List<Login> lgs = new ArrayList<Login>();
+        List<Usuarios> lgs = new ArrayList<Usuarios>();
         ps = con.prepareStatement(sql);
         rs = ps.executeQuery();
         
         while(rs.next()){
-            Login lg = new Login();
+            Usuarios lg = new Usuarios();
             
             lg.setCPF(rs.getLong("cpf"));
             lg.setNome(rs.getString("nome"));

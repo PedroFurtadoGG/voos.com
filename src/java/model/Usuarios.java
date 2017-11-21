@@ -11,8 +11,9 @@ import java.util.Date;
  *
  * @author aluno
  */
-public class Login {
+public class Usuarios {
     
+    private long id_usuario;
     private String nome;
     private String senha;
     private String telefone;
@@ -106,17 +107,31 @@ public class Login {
     }
 
     /**
-     * @return the dfb
+     * @return the dob
      */
     public Date getDob() {
         return dob;
     }
 
     /**
-     * @param dfb the dfb to set
+     * @param dob the dfb to set
      */
     public void setDob(Date dob) {
         this.dob = dob;
+    }
+
+    /**
+     * @return the id_usuario
+     */
+    public long getId_usuario() {
+        return id_usuario;
+    }
+
+    /**
+     * @param id_usuario the id_usuario to set
+     */
+    public void setId_usuario(long id_usuario) {
+        this.id_usuario = id_usuario;
     }
    
 }
