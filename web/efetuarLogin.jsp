@@ -10,10 +10,7 @@
 
  
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Confirmação da Inscrição do Produto</title>
-    </head>
+     <%@include file="/head.jsp" %>
     <body>
         <h1>Resultado da Inscrição</h1>
         <hr>

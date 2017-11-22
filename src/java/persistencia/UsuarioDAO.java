@@ -23,9 +23,9 @@ public class UsuarioDAO extends Conexao {
         ps.setString(1,email);
         ps.setString(2,senha);
         rs = ps.executeQuery();
-        Usuario uz = new Usuario();
+        Usuario u = new Usuario();
         if(rs.next()){
-            u.setNome(rs.getString("email"));
+            u.setEmail(rs.getString("email"));
             u.setTipo(rs.getString("tipo"));
         }
         return u;

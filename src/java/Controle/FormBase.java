@@ -30,7 +30,7 @@ public class FormBase extends GeraHTML {
             dao.efetuarLogin(uEmail, uSenha);
             HttpSession session = req.getSession();  
             session.setAttribute("email",uEmail);
-            session.setAttribute("tipo",u);
+            session.setAttribute("tipo",dao.rs.getString("tipo"));
             return "Login efetuado com sucesso" + session;
             
         } catch (Exception ex) {
