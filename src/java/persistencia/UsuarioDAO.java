@@ -23,12 +23,13 @@ public class UsuarioDAO extends Conexao {
         ps.setString(1,email);
         ps.setString(2,senha);
         rs = ps.executeQuery();
-        Usuario u = new Usuario();
+        Usuario uz = new Usuario();
         if(rs.next()){
             u.setNome(rs.getString("email"));
             u.setTipo(rs.getString("tipo"));
         }
         return u;
+        
     }
     public void cadastrarUsuario(Usuario u) throws Exception{
        OpenDatabase();
