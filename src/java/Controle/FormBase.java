@@ -17,7 +17,7 @@ import persistencia.UsuarioDAO;
  * @author Lenovo
  */
 public class FormBase extends GeraHTML {
-    public String efetuarLogin(HttpServletRequest req, HttpServletResponse res){
+    public String efetuarLogin(HttpServletRequest req){
         try {
             String uEmail = req.getParameter("email");
             String uSenha = req.getParameter("senha");
@@ -28,11 +28,9 @@ public class FormBase extends GeraHTML {
             
             UsuarioDAO dao = new UsuarioDAO();
             dao.efetuarLogin(uEmail, uSenha);
-            HttpSession session = req.getSession(true);
-            session.setAttribute("PjtLoginFiltro_logado", true);
-            session.setAttribute("PjtLoginFiltro_nome", u.getNome());
-            session.setAttribute("PjtLoginFiltro_cargo", u.getTipo());
-            res.sendRedirect("index.jsp"); 
+            HttpSession session = req.getSession();  
+            session.setAttribute("email",uEmail);
+            
             return "Login efetuado com sucesso" + session;
             
         } catch (Exception ex) {
@@ -40,4 +38,11 @@ public class FormBase extends GeraHTML {
         }
        
     }
+    
+    public String efetuarLogout(HttpServletRequest req){
+         HttpSession session = req.getSession();  
+         session.invalidate(); 
+         return "DEU BOM";
+    }
+    
 }

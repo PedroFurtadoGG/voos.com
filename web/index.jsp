@@ -17,7 +17,8 @@
             Senha <input required type="text" class="form-control" name="senha" id="senha" value="" /> <br/>
              <input type="submit" form="cadastro" value="Submit">Salvar</button>
         </form>
-        <h1><%=session.getAttribute("PjtLoginFiltro_name")%></h1>
+        <h1><%=session.getAttribute("email")%></h1>
     
+        <a href="efetuarLogout.jsp">QUE</a>
     </body>
 </html>
