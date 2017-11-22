@@ -19,6 +19,6 @@
         </form>
         <h1><%=session.getAttribute("email")%></h1>
     
-        <a href="efetuarLogout.jsp">QUE</a>
+        <a href="efetuarLogout.jsp">Logout</a>
     </body>
 </html>
