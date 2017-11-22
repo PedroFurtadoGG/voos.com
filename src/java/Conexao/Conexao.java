@@ -13,7 +13,7 @@ public class Conexao {
  
     public  void  OpenDatabase()throws Exception{
         Class.forName("com.mysql.jdbc.Driver");
-        String url = "jdbc:mysql://localhost:3306/voos.com";
+        String url = "jdbc:mysql://localhost:3306/voos";
         String user = "root";  //Seu nome de usuário.
         String password = "";  //Sua senha, nesse caso o Banco esta sem senha.
         con = DriverManager.getConnection(url, user, password);

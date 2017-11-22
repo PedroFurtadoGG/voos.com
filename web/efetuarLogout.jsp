@@ -1,5 +1,5 @@
 <%-- 
-    Document   : efetuarLogin
+    Document   : efetuarLogout
     Created on : 08/09/2017, 17:06:18
     Author     : Lenovo
 --%>
@@ -14,7 +14,7 @@
     <body>
         <h1>Resultado da Inscrição</h1>
         <hr>
-        <h2><%=fac.efetuarLogin(request)%></h2>
+        <h2><%=fac.efetuarLogout(request)%></h2>
         <br>
         <br>
        

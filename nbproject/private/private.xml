@@ -5,9 +5,8 @@
         <group>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/index.jsp</file>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/modelo/Usuario.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/efetuarLogin.jsp</file>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/Controle/FormBase.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/Conexao/Conexao.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/efetuarLogout.jsp</file>
             <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/persistencia/UsuarioDAO.java</file>
         </group>
     </open-files>
