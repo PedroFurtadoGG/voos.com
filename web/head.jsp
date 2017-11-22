@@ -7,8 +7,11 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Voos.com</title>
-    <span hidden><%=session.getAttribute("email")%>
-    <%=session.getAttribute("tipo")%></span>
+    <%
+      String sessionEmail = (String)session.getAttribute("email");
+      String sessionTipo  = (String)session.getAttribute("tipo");
+    %>
+
 </head>
     
 
