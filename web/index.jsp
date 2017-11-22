@@ -17,8 +17,11 @@
          <% if (request.getAttribute("tipo") == "A") { %>
             <h1><%=session.getAttribute("email")%></h1>
             <h1><%=session.getAttribute("tipo")%></h1>
-         <% }else{ %>
-            <h1>TU É CLIENTE SEU DESGRAÇA</h1>
+         <% } %>
+         <h1><%=session.getAttribute("tipo")%></h1>
+         <% if (request.getAttribute("tipo") == "C") { %>
+            <h1><%=session.getAttribute("email")%></h1>
+            <h1><%=session.getAttribute("tipo")%></h1>
          <% } %>
         <a href="efetuarLogout.jsp">Logout</a>
     </body>
