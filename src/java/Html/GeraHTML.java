@@ -3,11 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Html;
+
+
+import java.text.SimpleDateFormat;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  *
- * @author aluno
+ * @author Lenovo
  */
-public class Conexao {
-    
+public class GeraHTML {
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 21-Nov-2017 às 22:17
+-- Generation Time: 23-Nov-2017 às 22:58
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -47,6 +47,14 @@ CREATE TABLE `avioes` (
   `qtde_poltronas` int(10) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `avioes`
+--
+
+INSERT INTO `avioes` (`id_aviao`, `modelo`, `qtde_poltronas`) VALUES
+(1, 'boing777', 400),
+(2, 'boing777', 400);
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +66,14 @@ CREATE TABLE `cidades` (
   `uf` varchar(2) NOT NULL DEFAULT '',
   `nome` varchar(255) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `cidades`
+--
+
+INSERT INTO `cidades` (`id_cidade`, `uf`, `nome`) VALUES
+(1, 'AS', 'Vallhala'),
+(2, 'AS', 'Vallhala');
 
 -- --------------------------------------------------------
 
@@ -74,7 +90,8 @@ CREATE TABLE `passagens` (
   `data_ida` date NOT NULL DEFAULT '0000-00-00',
   `data_volta` date NOT NULL DEFAULT '0000-00-00',
   `id_voo` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `id_reserva` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `id_reserva` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `id_poltrona` int(10) UNSIGNED NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -107,7 +124,8 @@ CREATE TABLE `reservas` (
   `qtde` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_usuario` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_aeroporto` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `id_poltrona` int(10) UNSIGNED NOT NULL DEFAULT '0'
+  `id_poltrona` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `hr_embarque` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -126,6 +144,13 @@ CREATE TABLE `usuarios` (
   `telefone` varchar(15) NOT NULL DEFAULT '',
   `cpf` varchar(15) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `email`, `nome`, `senha`, `tipo`, `data_nascimento`, `telefone`, `cpf`) VALUES
+(1, 'admin@admin.com.br', 'admin', 'admin@321', 'A', '0000-00-00', '123459876', '09809809876000');
 
 -- --------------------------------------------------------
 
@@ -212,12 +237,12 @@ ALTER TABLE `aeroportos`
 -- AUTO_INCREMENT for table `avioes`
 --
 ALTER TABLE `avioes`
-  MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id_cidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_cidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `passagens`
 --
@@ -232,17 +257,17 @@ ALTER TABLE `poltronas`
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `voos`
 --
 ALTER TABLE `voos`
-  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
