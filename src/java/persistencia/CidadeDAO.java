@@ -14,7 +14,7 @@ import Conexao.Conexao;
  *
  * @author Matheus
  */
-public class Cidade extends Conexao {
+public class CidadeDAO extends Conexao {
 
     public void cadastrarCidades(Cidades c) throws Exception {
         OpenDatabase();

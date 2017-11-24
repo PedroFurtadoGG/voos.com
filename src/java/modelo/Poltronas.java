@@ -15,7 +15,7 @@ public class Poltronas {
     private String status;
     private String tipo;
     private String nome;
-    private long id_avião;
+    private long id_aviao;
 
     /**
      * @return the id_poltronas
@@ -74,17 +74,17 @@ public class Poltronas {
     }
 
     /**
-     * @return the id_avião
+     * @return the id_aviao
      */
-    public long getId_avião() {
-        return id_avião;
+    public long getId_aviao() {
+        return id_aviao;
     }
 
     /**
-     * @param id_avião the id_avião to set
+     * @param id_aviao the id_aviao to set
      */
-    public void setId_avião(long id_avião) {
-        this.id_avião = id_avião;
+    public void setId_aviao(long id_aviao) {
+        this.id_aviao = id_aviao;
     }
     
     

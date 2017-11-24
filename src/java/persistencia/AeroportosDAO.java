@@ -82,10 +82,12 @@ public class AeroportosDAO extends Conexao {
     
     public void excluirAeroporto (long id_aeroporto) throws Exception{
         OpenDatabase();
-        SQL = "DELETE FROM aeroportos WHEREid_aeroporto=?";
+        SQL = "DELETE FROM aeroportos WHERE id_aeroporto=?";
         ps = con.prepareStatement(SQL);
-        ps.setLong(1, id_aeroporto);
+        ps.setLong(1, id_aeroporto); 
         ps.execute();
         CloseDatabase();
     }
+    
+     
 }
