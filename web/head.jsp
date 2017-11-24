@@ -8,6 +8,7 @@
     <%
       String sessionEmail = (String)session.getAttribute("email");
       String sessionTipo  = (String)session.getAttribute("tipo");
+
     %>
       <title>Voos.com</title>
       <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
