@@ -15,15 +15,17 @@ public class Reservas {
     
     private long id_reserva;
     private String classe;
-    private float valor;
+    private Double valor;
     private String status;
     private Date data_ida;
     private Date data_volta;
-    private int quantidade;
-    private long id_usuário;
+    private int qtde;
+    private long id_usuario;
     private long id_aeroporto;
     private long id_poltrona;
-
+    private Date hr_embarque;
+    
+    
     /**
      * @return the id_reserva
      */
@@ -55,16 +57,7 @@ public class Reservas {
     /**
      * @return the valor
      */
-    public float getValor() {
-        return valor;
-    }
-
-    /**
-     * @param valor the valor to set
-     */
-    public void setValor(float valor) {
-        this.valor = valor;
-    }
+    
 
     /**
      * @return the status
@@ -109,31 +102,31 @@ public class Reservas {
     }
 
     /**
-     * @return the quantidade
+     * @return the qtde
      */
-    public int getQuantidade() {
-        return quantidade;
+    public int getQtde() {
+        return qtde;
     }
 
     /**
-     * @param quantidade the quantidade to set
+     * @param qtde the qtde to set
      */
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setQtde(int qtde) {
+        this.qtde = qtde;
     }
 
     /**
-     * @return the id_usuário
+     * @return the id_usuario
      */
-    public long getId_usuário() {
-        return id_usuário;
+    public long getId_usuario() {
+        return id_usuario;
     }
 
     /**
-     * @param id_usuário the id_usuário to set
+     * @param id_usuario the id_usuario to set
      */
-    public void setId_usuário(long id_usuário) {
-        this.id_usuário = id_usuário;
+    public void setId_usuario(long id_usuario) {
+        this.id_usuario = id_usuario;
     }
 
     /**
@@ -162,6 +155,34 @@ public class Reservas {
      */
     public void setId_poltrona(long id_poltrona) {
         this.id_poltrona = id_poltrona;
+    }
+
+    /**
+     * @return the hr_embarque
+     */
+    public Date getHr_embarque() {
+        return hr_embarque;
+    }
+
+    /**
+     * @param hr_embarque the hr_embarque to set
+     */
+    public void setHr_embarque(Date hr_embarque) {
+        this.hr_embarque = hr_embarque;
+    }
+
+    /**
+     * @return the valor
+     */
+    public Double getValor() {
+        return valor;
+    }
+
+    /**
+     * @param valor the valor to set
+     */
+    public void setValor(Double valor) {
+        this.valor = valor;
     }
     
     
