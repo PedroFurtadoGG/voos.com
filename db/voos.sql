@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Nov-2017 às 22:58
+-- Generation Time: 25-Nov-2017 às 01:30
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -86,7 +86,7 @@ CREATE TABLE `passagens` (
   `portao_embarque` varchar(4) NOT NULL DEFAULT '',
   `status` varchar(20) NOT NULL DEFAULT '',
   `classe` varchar(20) NOT NULL DEFAULT '',
-  `hr_embarque` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `hr_embarque` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `data_ida` date NOT NULL DEFAULT '0000-00-00',
   `data_volta` date NOT NULL DEFAULT '0000-00-00',
   `id_voo` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -125,7 +125,7 @@ CREATE TABLE `reservas` (
   `id_usuario` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_aeroporto` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_poltrona` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `hr_embarque` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `hr_embarque` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -237,12 +237,12 @@ ALTER TABLE `aeroportos`
 -- AUTO_INCREMENT for table `avioes`
 --
 ALTER TABLE `avioes`
-  MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cidades`
 --
 ALTER TABLE `cidades`
-  MODIFY `id_cidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_cidade` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `passagens`
 --
@@ -257,17 +257,17 @@ ALTER TABLE `poltronas`
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `voos`
 --
 ALTER TABLE `voos`
-  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
