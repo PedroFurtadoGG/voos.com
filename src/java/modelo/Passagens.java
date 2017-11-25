@@ -22,7 +22,9 @@ public class Passagens {
     private Date data_volta;
     private long id_voo;
     private long id_reserva;
+    private long id_poltrona;
 
+     
     /**
      * @return the id_passagem
      */
@@ -147,6 +149,20 @@ public class Passagens {
      */
     public void setId_reserva(long id_reserva) {
         this.id_reserva = id_reserva;
+    }
+
+    /**
+     * @return the id_poltrona
+     */
+    public long getId_poltrona() {
+        return id_poltrona;
+    }
+
+    /**
+     * @param id_poltrona the id_poltrona to set
+     */
+    public void setId_poltrona(long id_poltrona) {
+        this.id_poltrona = id_poltrona;
     }
     
     

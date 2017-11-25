@@ -37,7 +37,7 @@ public class VoosDAO extends Conexao{
         rs = ps.executeQuery();
         
         Voos v = new Voos();
-            if(rs.next()){
+        if(rs.next()){
             v.setId_voo(rs.getLong("id_voo"));
             v.setStatus(rs.getString("status"));
             v.setId_aviao(rs.getLong("id_aviao"));

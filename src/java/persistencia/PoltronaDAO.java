@@ -21,7 +21,7 @@ public class PoltronaDAO extends Conexao{
         
         SQL = "INSERT INTO poltronas(status,tipo,nome) VALUES (?,?,?)";
         ps = con.prepareStatement(SQL);
-        ps.setString(1, p.getStatus());
+        ps.setString(1, p.getStatus()); 
         ps.setString(2, p.getTipo());
         ps.setString(3, p.getNome());
         ps.execute();
@@ -72,6 +72,28 @@ public class PoltronaDAO extends Conexao{
         ps.setLong(1, id_poltrona);
         ps.execute();
         CloseDatabase();
+    }
+    
+    public Poltronas consultarPoltronas(long id_poltrona)throws Exception{
+        OpenDatabase();
+        
+        SQL = "SELECT status, tipo, nome, id_aviao WHERE id_aviao=?";
+        
+        ps= con.prepareStatement(SQL);
+        ps.setLong(1, id_poltrona);
+        rs = ps.executeQuery();
+        
+        Poltronas p = new Poltronas();
+        if(rs.next()){
+            
+            p.setId_poltronas(rs.getLong("id_poltrona"));
+            p.setStatus(rs.getString("status"));
+            p.setTipo(rs.getString("tipo"));
+            p.setNome(rs.getString("nome"));
+            p.setId_aviao(rs.getLong("id_aviao"));
+        }
+        CloseDatabase();
+        return p;
     }
     
      

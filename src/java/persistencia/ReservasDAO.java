@@ -82,6 +82,7 @@ public class ReservasDAO extends Conexao {
        List lista = new ArrayList();
        while(rs.next()){
            Reservas r = new Reservas();
+           r.setId_reserva(rs.getLong("id_reserva"));
            r.setClasse(rs.getString("classe"));
            r.setValor(rs.getDouble("valor"));
            r.setStatus(rs.getString("status"));
@@ -98,5 +99,33 @@ public class ReservasDAO extends Conexao {
        return lista;
     }
     
+    public Reservas consultarReserva(long id_reserva) throws Exception{
+        OpenDatabase();
+        
+        SQL= "SELECT classe, valor, status, data_ida, data_volta, qtde, id_usuario, id_aeroporto, id_poltrona, hr_embraque"
+                + "WHERE id_reserva=?";
+        
+        ps= con.prepareStatement(SQL);
+        ps.setLong(1, id_reserva);
+        rs = ps.executeQuery();
+        
+        Reservas r = new Reservas();
+        if(rs.next()){
+           r.setId_reserva(rs.getLong("id_reserva"));
+           r.setClasse(rs.getString("classe"));
+           r.setValor(rs.getDouble("valor"));
+           r.setStatus(rs.getString("status"));
+           r.setData_ida(rs.getDate("data_ida"));
+           r.setData_volta(rs.getDate("data_volta"));
+           r.setQtde(rs.getInt("qtde"));
+           r.setId_usuario(rs.getLong("id_usuario"));
+           r.setId_aeroporto(rs.getLong("id_aeroporto"));
+           r.setId_poltrona(rs.getLong("id_poltrona"));
+           r.setHr_embarque(rs.getDate("hr_embarque"));
+        }
+        CloseDatabase();
+        return r;
+        
+    }
     
 }
