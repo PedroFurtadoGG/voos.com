@@ -9,39 +9,27 @@
                </a>
             </li>
             
-            <% if (sessionTipo != null && sessionTipo.equals("A")) {  %>
+            <% if (sessionSessao != null) {  %>
+            <li>
+               <a href="#"><%= sessionEmail %></a>
+               <ul>
+                  <li><a href="actions/efetuarLogout.jsp">Logout</a></li>
+               </ul>
+            </li>
+            <% } else { %>
+            <li>
+               <a href="login.jsp">Login/Registrar </a>
+            </li>
+            <% }%>
+            
+            <% if (sessionTipo == "A" && sessionEmail == "admin@admin.com.br") {  %>
             <li>
                <a href="#">Usuários</a>
                <ul>
                   <li><a href="listaUsuarios.jsp">Listagem</a></li>
                </ul>
             </li>
-            <% } %>
-            
-            <% if (sessionTipo == "C" && sessionTipo == null) {  %>
-            <li>
-               <a href="#"><%= sessionEmail %></a>
-               <ul>
-                  <li><a href="listaUsuarios.jsp">Listagem</a></li>
-               </ul>
-            </li>
-            <% } %>
-            
-            <% if (sessionSessao != null) {  %>
-            
-            <li>
-               <a href="#"><%= sessionEmail %></a>
-               <ul>
-                   <li><a href="login.jsp">Login </a></li>
-                  <li><a href="actions/efetuarLogout.jsp">Logout</a></li>
-               </ul>
-            </li>
-            <% } else { %>
-            <li>
-               <a href="login.jsp">Login </a>
-            </li>
-            <% }%>
-            <li>
+            <% } %> 
          </ul>
       </div>
    </div>
