@@ -30,6 +30,13 @@
                </ul>
             </li>
             <% } %> 
+            
+            <li>
+               <a href="#">Usuários</a>
+               <ul>
+                  <li><a href="listaUsuarios.jsp">Lista de Usuários</a></li>
+               </ul>
+            </li>
          </ul>
       </div>
    </div>
