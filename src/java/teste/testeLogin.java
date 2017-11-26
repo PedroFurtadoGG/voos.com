@@ -20,9 +20,9 @@ public class testeLogin {
         Usuario us = new Usuario();
         UsuarioDAO dao = new UsuarioDAO();
         us = dao.efetuarLogin(email, senha);
-        System.out.println(us.getNome());
+        System.out.println(us.getEmail());
         System.out.println(us.getTipo());
-        if(us.getNome()!=null){
+        if(us.getTipo() == "A"){
             System.out.println("Login feito com sucesso");
         } else {
             System.out.println("Login ou senha invalidos");

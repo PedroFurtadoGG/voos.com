@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/index.jsp</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/modelo/Usuario.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/index.html</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/Controle/FormBase.java</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/efetuarLogout.jsp</file>
-            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/src/java/persistencia/UsuarioDAO.java</file>
-=======
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/persistencia/AeroportosDAO.java</file>
->>>>>>> 7d6ea26c27c1a3e325cfb194bfdea8d2f16fbb9f
-        </group>
+        <group/>
     </open-files>
 </project-private>

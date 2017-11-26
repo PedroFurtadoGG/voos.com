@@ -5,12 +5,15 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="fac" class="Controle.FormBase"/>
+<jsp:useBean id="fac" class="Controle.Login"/>
 <!DOCTYPE html>
 
+ <script type="text/JavaScript">
+      setTimeout("location.href = 'login.jsp';",1500);
+ </script>
  
 <html>
-     <%@include file="/head.jsp" %>
+     
     <body>
         <h1>Resultado da Inscrição</h1>
         <hr>

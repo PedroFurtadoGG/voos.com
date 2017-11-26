@@ -1,28 +1,7 @@
-<%@include file="/head.jsp" %>
+<%@include file="/commons/head.jsp" %>
 <body>
-   <div class="global-wrap">
-      <header id="main-header">
-         <div class="container">
-            <div class="nav">
-               <ul class="slimmenu">
-                  <li>
-                     <a class="logo" href="index.html">
-                     <img src="http://www.kanzenshuu.com/wp-content/themes/kanzenshuu/images/logo_rof.png?x66125" alt="Image Alternative text" title="Image Title" />
-                     </a>
-                  </li>
-                  <li>
-                     <a href="rentals.html">Destinos</a>
-                  </li>
-                  <li>
-                     <a href="cars.html">Aviıes</a>
-                  </li>
-                  <li>
-                     <a href="activities.html">Login</a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-      </header>
+  <div class="global-wrap">
+    <%@include file="/commons/header.jsp" %>
       <!-- TOP AREA -->
       <img src="http://allswalls.com/images/airplane-in-the-sunset-wallpaper-1.jpg">
    </div>
@@ -36,7 +15,7 @@
             </ul>
             <div class="tab-content">
                <div class="tab-pane fade in active">
-                  <h2>Procure viagens dispon√≠veis</h2>
+                  <h2>Procure viagens disponiveis</h2>
                   <form>
                      <div class="row">
                         <div class="col-md-4">

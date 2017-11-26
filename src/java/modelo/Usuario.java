@@ -20,7 +20,7 @@ public class Usuario {
   private String tipo;
   private Date data_nascimento;
   private String telefone;
-  private int cpf;
+  private String cpf;
 
     /**
      * @return the id_usuario
@@ -123,14 +123,14 @@ public class Usuario {
     /**
      * @return the cpf
      */
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
     /**
      * @param cpf the cpf to set
      */
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
   
