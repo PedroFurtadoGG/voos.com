@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: 25-Nov-2017 às 01:30
+=======
+-- Generation Time: 27-Nov-2017 às 22:40
+>>>>>>> 685f64268b521f943f0a2b22d23ac9206615880d
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -73,7 +77,8 @@ CREATE TABLE `cidades` (
 
 INSERT INTO `cidades` (`id_cidade`, `uf`, `nome`) VALUES
 (1, 'AS', 'Vallhala'),
-(2, 'AS', 'Vallhala');
+(2, 'AS', 'Vallhala'),
+(3, 'DF', 'Brasilia');
 
 -- --------------------------------------------------------
 
@@ -150,7 +155,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `email`, `nome`, `senha`, `tipo`, `data_nascimento`, `telefone`, `cpf`) VALUES
-(1, 'admin@admin.com.br', 'admin', 'admin@321', 'A', '0000-00-00', '123459876', '09809809876000');
+(1, 'admin@admin.com.br', 'admin', 'admin@321', 'A', '2017-11-10', '123459876', '09809809876000'),
+(2, 'bd@bruno.com', 'Bruno Dantas', '12345', 'C', '1996-08-20', '62 993243458', '12345678909');
 
 -- --------------------------------------------------------
 

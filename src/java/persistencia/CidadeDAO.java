@@ -18,7 +18,7 @@ public class CidadeDAO extends Conexao {
 
     public void cadastrarCidades(Cidades c) throws Exception {
         OpenDatabase();
-        SQL = "INSERT INTO cidades(uf, nome"
+        SQL = "INSERT INTO cidades(uf, nome)"
                 + "VALUES(?, ?)";
         ps = con.prepareStatement(SQL);
         ps.setString(1, c.getUf());
@@ -29,7 +29,7 @@ public class CidadeDAO extends Conexao {
 
     public List listarCidades() throws Exception {
         OpenDatabase();
-        SQL = "SELECT * FROM cidades ORDER BY id_cidades";
+        SQL = "SELECT * FROM cidades ORDER BY id_cidade";
         ps = con.prepareStatement(SQL);
         rs = ps.executeQuery();
         List listaCidades = new ArrayList();
@@ -44,6 +44,24 @@ public class CidadeDAO extends Conexao {
         CloseDatabase();
         return listaCidades;
 
+    }
+    
+    public Cidades visualizarCidade(long id_cidade) throws Exception {
+        OpenDatabase();
+        SQL = "SELECT * FROM cidades WHERE id_cidade=?";
+        ps = con.prepareStatement(SQL);
+        ps.setLong(1, id_cidade);
+        rs = ps.executeQuery();
+        Cidades a = new Cidades();
+        if (rs.next()) {
+            a.setId_cidade(rs.getLong("id_cidade"));
+        }
+        a.setNome(rs.getString("nome"));
+        a.setUf(rs.getString("uf"));
+
+        CloseDatabase();
+
+        return a;
     }
 
     public void atualizarCidades(Cidades a) throws Exception {

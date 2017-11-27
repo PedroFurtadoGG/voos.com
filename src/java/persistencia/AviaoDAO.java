@@ -14,11 +14,11 @@ import modelo.Avioes;
  *
  * @author Matheus
  */
-public class aviaoDao extends Conexao {
+public class AviaoDAO extends Conexao {
 
     public void cadastrarAviao(Avioes a) throws Exception {
         OpenDatabase();
-        SQL = "INSERT INTO avioes(modelo, qtde_poltronas"
+        SQL = "INSERT INTO avioes(modelo, qtde_poltronas)"
                 + "VALUES(?, ?)";
         ps = con.prepareStatement(SQL);
         ps.setString(1, a.getModelo());
@@ -47,7 +47,7 @@ public class aviaoDao extends Conexao {
 
     public List listarAvioes() throws Exception {
         OpenDatabase();
-        SQL = "SELECT * FROM avioes ORDER BY id_avioes";
+        SQL = "SELECT * FROM avioes ORDER BY id_aviao";
         ps = con.prepareStatement(SQL);
         rs = ps.executeQuery();
         List listaAvioes = new ArrayList();
@@ -55,7 +55,7 @@ public class aviaoDao extends Conexao {
             Avioes a = new Avioes();
             a.setId_aviao(rs.getLong("id_aviao"));
             a.setModelo(rs.getString("modelo"));
-            a.setQtde_poltronas(rs.getInt("qtde_poltrona"));
+            a.setQtde_poltronas(rs.getInt("qtde_poltronas"));
 
             listaAvioes.add(a);
         }
@@ -66,22 +66,22 @@ public class aviaoDao extends Conexao {
 
     public void atualizarAvioes(Avioes a) throws Exception {
         OpenDatabase();
-        SQL = "UPDATE avioes SET id_avioes=?, modelo=?, qtde_poltrona=?, WHERE id_avioes=?";
+        SQL = "UPDATE avioes SET modelo=?, qtde_poltrona=?, WHERE id_avioes=?";
 
         ps = con.prepareStatement(SQL);
-        ps.setLong(1, a.getId_aviao());
-        ps.setString(2, a.getModelo());
-        ps.setInt(3, a.getQtde_poltronas());
-        ps.setLong(4, a.getId_aviao());
+        
+        ps.setString(1, a.getModelo());
+        ps.setInt(2, a.getQtde_poltronas());
+        ps.setLong(3, a.getId_aviao());
         ps.execute();
         CloseDatabase();
     }
 
-    public void excluirAviao(long id_avioes) throws Exception {
+    public void excluirAviao(long id_aviao) throws Exception {
         OpenDatabase();
-        SQL = "DELETE FROM avioes WHERE id_avioes=?";
+        SQL = "DELETE FROM avioes WHERE id_aviao=?";
         ps = con.prepareStatement(SQL);
-        ps.setLong(1, id_avioes);
+        ps.setLong(1, id_aviao);
         ps.execute();
         CloseDatabase();
     }
