@@ -32,7 +32,12 @@ public class Login extends GeraHTML{
             HttpSession session = req.getSession();
             session.setAttribute("sessao", sessao);
             session.setAttribute("email", uEmail);
-            session.setAttribute("tipo", dao.rs.getString("tipo"));
+            
+            if("admin@admin.com.br".equals(uEmail)){
+              session.setAttribute("tipo", "A");
+            } else{
+               session.setAttribute("tipo", "C"); 
+            }
             return "Login efetuado com sucesso" + session;
 
         } catch (Exception ex) {

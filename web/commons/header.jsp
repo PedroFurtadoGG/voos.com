@@ -8,7 +8,30 @@
                <img src="http://www.kanzenshuu.com/wp-content/themes/kanzenshuu/images/logo_rof.png?x66125" alt="Image Alternative text" title="Image Title" />
                </a>
             </li>
-            
+            <!-- Esse if faz o filtro por tipo -->
+            <% if ("A".equals(sessionTipo)) {  %>
+            <li>
+               <a href="#">Usuários</a>
+               <ul>
+                  <li><a href="listaUsuarios.jsp">Listagem</a></li>
+                  <li><a href="login.jsp">Cadastro</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#">Aviões</a>
+               <ul>
+                  <li><a href="listaAviao.jsp">Listagem</a></li>
+                  <li><a href="formCadastroAviao.jsp">Cadastro</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="listaCidades.jsp">Cidades</a>
+               <ul>
+                  <li><a href="listaCidade.jsp">Listagem</a></li>
+                  <li><a href="formCadastroCidade.jsp">Cadastro</a></li>
+               </ul>
+            </li>
+            <% } %>
             <% if (sessionSessao != null) {  %>
             <li>
                <a href="#"><%= sessionEmail %></a>
@@ -21,22 +44,6 @@
                <a href="login.jsp">Login/Registrar </a>
             </li>
             <% }%>
-            
-            <% if (sessionTipo == "A" && sessionEmail == "admin@admin.com.br") {  %>
-            <li>
-               <a href="#">Usuários</a>
-               <ul>
-                  <li><a href="listaUsuarios.jsp">Listagem</a></li>
-               </ul>
-            </li>
-            <% } %> 
-            
-            <li>
-               <a href="#">Usuários</a>
-               <ul>
-                  <li><a href="listaUsuarios.jsp">Lista de Usuários</a></li>
-               </ul>
-            </li>
          </ul>
       </div>
    </div>
