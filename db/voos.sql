@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 23-Nov-2017 às 22:58
+-- Generation Time: 27-Nov-2017 às 22:40
 -- Versão do servidor: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -73,7 +73,8 @@ CREATE TABLE `cidades` (
 
 INSERT INTO `cidades` (`id_cidade`, `uf`, `nome`) VALUES
 (1, 'AS', 'Vallhala'),
-(2, 'AS', 'Vallhala');
+(2, 'AS', 'Vallhala'),
+(3, 'DF', 'Brasilia');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,7 @@ CREATE TABLE `passagens` (
   `portao_embarque` varchar(4) NOT NULL DEFAULT '',
   `status` varchar(20) NOT NULL DEFAULT '',
   `classe` varchar(20) NOT NULL DEFAULT '',
-  `hr_embarque` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `hr_embarque` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `data_ida` date NOT NULL DEFAULT '0000-00-00',
   `data_volta` date NOT NULL DEFAULT '0000-00-00',
   `id_voo` int(10) UNSIGNED NOT NULL DEFAULT '0',
@@ -125,7 +126,7 @@ CREATE TABLE `reservas` (
   `id_usuario` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_aeroporto` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `id_poltrona` int(10) UNSIGNED NOT NULL DEFAULT '0',
-  `hr_embarque` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+  `hr_embarque` datetime NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -150,7 +151,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `email`, `nome`, `senha`, `tipo`, `data_nascimento`, `telefone`, `cpf`) VALUES
-(1, 'admin@admin.com.br', 'admin', 'admin@321', 'A', '0000-00-00', '123459876', '09809809876000');
+(1, 'admin@admin.com.br', 'admin', 'admin@321', 'A', '2017-11-10', '123459876', '09809809876000'),
+(2, 'bd@bruno.com', 'Bruno Dantas', '12345', 'C', '1996-08-20', '62 993243458', '12345678909');
 
 -- --------------------------------------------------------
 
@@ -237,7 +239,7 @@ ALTER TABLE `aeroportos`
 -- AUTO_INCREMENT for table `avioes`
 --
 ALTER TABLE `avioes`
-  MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_aviao` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `cidades`
 --
@@ -257,7 +259,7 @@ ALTER TABLE `poltronas`
 -- AUTO_INCREMENT for table `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_reserva` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `usuarios`
 --
@@ -267,7 +269,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `voos`
 --
 ALTER TABLE `voos`
-  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_voo` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
