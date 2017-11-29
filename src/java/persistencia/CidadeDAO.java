@@ -66,13 +66,13 @@ public class CidadeDAO extends Conexao {
 
     public void atualizarCidades(Cidades a) throws Exception {
         OpenDatabase();
-        SQL = "UPDATE cidades SET id_cidades=?, uf=?, nome=?, WHERE id_cidades=?";
+        SQL = "UPDATE cidades SET uf=?, nome=?, WHERE id_cidades=?";
 
         ps = con.prepareStatement(SQL);
-        ps.setLong(1, a.getId_cidade());
-        ps.setString(2, a.getUf());
-        ps.setString(3, a.getNome());
-        ps.setLong(4, a.getId_cidade());
+        //ps.setLong(1, a.getId_cidade());
+        ps.setString(1, a.getUf());
+        ps.setString(2, a.getNome());
+        ps.setLong(3, a.getId_cidade());
         ps.execute();
         CloseDatabase();
     }

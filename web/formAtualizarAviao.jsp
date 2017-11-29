@@ -31,7 +31,7 @@
       <div class="container">
          <div class="row row-wrap">
             <div class="col-md-3">
-               <a class="logo" href="index.html">
+               <a class="logo" href="index.jsp">
                <img src="http://www.kanzenshuu.com/wp-content/themes/kanzenshuu/images/logo_rof.png?x66125" alt="Image Alternative text" title="Image Title" />
                </a>
             </div>

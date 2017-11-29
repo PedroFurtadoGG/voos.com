@@ -36,9 +36,10 @@ public class AviaoDAO extends Conexao {
         Avioes a = new Avioes();
         if (rs.next()) {
             a.setId_aviao(rs.getLong("id_aviao"));
+            a.setModelo(rs.getString("modelo"));
+            a.setQtde_poltronas(rs.getInt("qtde_poltronas"));
         }
-        a.setModelo(rs.getString("modelo"));
-        a.setQtde_poltronas(rs.getInt("qtde_poltronas"));
+       
 
         CloseDatabase();
 

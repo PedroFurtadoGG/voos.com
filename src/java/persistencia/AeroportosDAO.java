@@ -69,13 +69,13 @@ public class AeroportosDAO extends Conexao {
     public void atualizarAeroporto(Aeroportos a) throws Exception{
         OpenDatabase();
         SQL = "UPDATE aeroportos "
-              + "SET id_aeroporto=?, nome=?, link_localizacao=?, id_cidade=?"
+              + "SET nome=?, link_localizacao=?, id_cidade=?"
                 + "WHERE id_aeroporto=?";
         ps = con.prepareStatement(SQL);
-        ps.setLong(1, a.getId_aeroporto());
-        ps.setString(2, a.getNome());
-        ps.setString(3, a.getLink_localizacao());
-        ps.setLong(4, a.getId_cidade());
+        //ps.setLong(1, a.getId_aeroporto());
+        ps.setString(1, a.getNome());
+        ps.setString(2, a.getLink_localizacao());
+        ps.setLong(3, a.getId_cidade());
         ps.execute();
         CloseDatabase();
     }

@@ -36,6 +36,32 @@ public class Aviao extends BaseGenerator{
         }
     }
     
+    public String atualizarAviao(HttpServletRequest req){
+        try {
+            String id = req.getParameter("id_aviao");
+            String modelo = req.getParameter("modelo");
+            String qtde_poltronas = req.getParameter("qtde_poltronas");
+            
+            modelo.Avioes aviao = new modelo.Avioes();
+            aviao.setModelo(modelo);
+            aviao.setQtde_poltronas(Integer.parseInt(qtde_poltronas));
+            
+            AviaoDAO dao = new AviaoDAO();
+            if(id == null || id.isEmpty()){
+                dao.cadastrarAviao(aviao);
+            }else{
+                dao.atualizarAvioes(aviao);
+            }
+            
+            System.out.println("Atualizado Aviao !!!");
+            
+            return "Aviao Atualizado Success " ;
+            
+        } catch (Exception e) {
+            return "Excecao"+e.getMessage();
+        }
+    }
+    
     public String getListAviao(){
         try{
             AviaoDAO dao = new AviaoDAO();

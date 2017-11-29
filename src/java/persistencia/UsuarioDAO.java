@@ -100,19 +100,19 @@ public class UsuarioDAO extends Conexao {
     
     public void atualizarUsuario(Usuario u) throws Exception{
         OpenDatabase();
-        SQL =  "UPDATE usuarios SET id_usuario=?, nome=?, email=?,"
+        SQL =  "UPDATE usuarios SET nome=?, email=?,"
               + " senha=?, tipo=?, data_nascimento=?, telefone=?, cpf=? WHERE id_usuario=?";
        
         ps = con.prepareStatement(SQL);
-        ps.setInt(1, u.getId_usuario());
-        ps.setString(2, u.getNome());
-        ps.setString(3, u.getEmail());
-        ps.setString(4, u.getSenha());
-        ps.setString(5, u.getTipo());
-        ps.setDate(6, (Date) u.getData_nascimento());
-        ps.setString(7, u.getTelefone());
-        ps.setString(8, u.getCpf());
-        ps.setInt(9, u.getId_usuario());
+        //ps.setInt(1, u.getId_usuario());
+        ps.setString(1, u.getNome());
+        ps.setString(2, u.getEmail());
+        ps.setString(3, u.getSenha());
+        ps.setString(4, u.getTipo());
+        ps.setDate(5, (Date) u.getData_nascimento());
+        ps.setString(6, u.getTelefone());
+        ps.setString(7, u.getCpf());
+        
         ps.execute();
         CloseDatabase();
     }

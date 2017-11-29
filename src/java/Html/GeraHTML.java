@@ -3,6 +3,7 @@ package Html;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
+import modelo.Aeroportos;
 import modelo.Usuario;
 import modelo.Avioes;
 import modelo.Cidades;
@@ -84,7 +85,7 @@ public class GeraHTML {
                 + "</div>"
                 + "<div class='form-group'>"
                 + "<label>Senha</label>"
-                + "<input class='form-control value='' type='password' name='senha'/>"
+                + "<input class='form-control value='"+ u.getSenha()+ "' type='password' name='senha'/>"
                 + "<div>"
                 + "<input disable value='C' type='hidden'/>"
                 + "<hr>"
@@ -124,15 +125,17 @@ public class GeraHTML {
         StringBuffer sb = new StringBuffer();
 
        
-        sb.append("<form action='atualizarAviao.jsp' name='atualizarConta' method='post'>\n");
+        sb.append("<form action='actions/atualizarAviao.jsp' name='atualizarConta' method='post'>\n");
         sb.append("\t\t<h4>Informações do Avião</h4>"
                 + "<div class='form-group'>"
-                 + "<label>Modelo</label>"
-                + "<input class='form-control' value='" + a.getModelo()+ "' type='text' name='modelo' />"
+                + "<label>ID</label>"
+                + "<input class='form-control' value='" + a.getId_aviao()+ "' type='text' name='id' />"
+                + "<label>Modelo</label>"
+                + "<input class='form-control' value='"+a.getModelo()+"' type='text' name='modelo' />"
                 + "</div>"
                 + "<div class='form-group'>"
                 + "<label>Quantidade de Poltronas</label>"
-                + "<input class='form-control' value='" + a.getQtde_poltronas()+ "' name='email' type='text' />"
+                + "<input class='form-control' value='"+a.getQtde_poltronas()+"' name='qtde_poltronas' type='text' />"
                 + "</div>"
                 + "<hr>"
                 + "<input type='submit' class='btn btn-primary' value='Salvar'>");
@@ -178,6 +181,55 @@ public class GeraHTML {
                 + "<div class='form-group'>"
                 + "<label>UF</label>"
                 + "<select name='uf' class='form-group'><option value='AC'>Acre</option><option value='AL'>Alagoas</option><option value='AP'>Amapá</option><option value='AM'>Amazonas</option><option value='BA'>Bahia</option><option value='CE'>Ceará</option><option value='DF'>Distrito Federal</option><option value='ES'>Espírito Santo</option><option value='GO'>Goiás</option><option value='MA'>Maranhão</option><option value='MT'>Mato Grosso</option><option value='MS'>Mato Grosso do Sul</option><option value='MG'>Minas Gerais</option><option value='PA'>Pará</option><option value='PB'>Paraíba</option><option value='PR'>Paraná</option><option value='PE'>Pernambuco</option><option value='PI'>Piauí</option><option value='RJ'>Rio de Janeiro</option><option value='RN'>Rio Grande do Norte</option><option value='RS'>Rio Grande do Sul</option><option value='RO'>Rondônia</option><option value='RR'>Roraima</option><option value='SC'>Santa Catarina</option><option value='SP'>São Paulo</option><option value='SE'>Sergipe</option><option value='TO'>Tocantins</option></select>"
+                + "</div>"
+                + "<hr>"
+                + "<input type='submit' class='btn btn-primary' value='Salvar'>");
+        sb.append("\t</form>\r\n");
+        return sb.toString();
+    }
+    
+     public String getListAeroportos(List lista){
+        StringBuffer sb = new StringBuffer();
+        for (Iterator it = lista.iterator(); it.hasNext();) {
+           
+            Aeroportos a = (Aeroportos) it.next();
+            Cidades c = (Cidades)it.next();
+            sb.append("<li>"
+                    + "<span class='booking-item'>"
+                    + "<div class='row'>"
+                    + "<div class='col-md-3'>"
+                    + " <div class='booking-item-car-img'>"
+                    + "<h4>Aeroporto: "+ a.getNome()+"</h4>"
+                    + "<p class='booking-item-car-title'>Cidade :"+c.getNome() +"UF: " + c.getUf()+ "</p>"
+                    + "</div>"
+                    + "</div>"
+                    + "<div class='col-md-6'>"
+                    + "<div clas='row'>"
+                    + "<div class='col-md8'>"
+                    + "</div></div></div>"
+                    + "<div class='col-md-3'><br>"
+                    + "<a href='formAtualizarAeroporto.jsp?id_cidade="+a.getId_aeroporto()+"' class='btn btn-primary'>Editar</a>"    
+                    + "</div></div></span</li>");
+        }
+        return sb.toString();
+    }
+     
+     public String getFormAtualizarAeroporto(Aeroportos a) {
+        StringBuffer sb = new StringBuffer();
+       
+        sb.append("<form action='atualizarAeroporto.jsp' name='atualizarAeroporto' method='post'>\n");
+        sb.append("\t\t<h4>Informações do Aeroporto</h4>"
+                + "<div class='form-group'>"
+                 + "<label>Nome</label>"
+                + "<input class='form-control' value='" + a.getNome()+ "' type='text' name='nome' />"
+                + "</div>"
+                + "<div class='form-group'>"
+                + "<label>UF</label>"
+                + "<select name='cidade' class='form-group'>"
+                        + "<c:forEach var='cidades' items='${req}'>"
+                        + "<option value='$cidades.id_aeroporto'</option>"
+                        + "</c:forEach>"
+                + "</select>"
                 + "</div>"
                 + "<hr>"
                 + "<input type='submit' class='btn btn-primary' value='Salvar'>");
