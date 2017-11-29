@@ -5,19 +5,17 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="fac" class="Controle.Usuario"/>
+<jsp:useBean id="fac" class="Controle.Voos"/>
 <!DOCTYPE html>
 
- <script type="text/JavaScript">
-      setTimeout("location.href = '/Voos.com/login.jsp';",1500);
- </script>
+ 
  
 <html>
      
     <body>
         <h1>Cadastro efetuado com sucesso</h1>
         <hr>
-        <h2 hidden><%=fac.cadastrarUsuario(request)%></h2>
+        <h2 hidden><%=fac.cadastroVoo(request)%></h2>
         
     </body>
 </html>

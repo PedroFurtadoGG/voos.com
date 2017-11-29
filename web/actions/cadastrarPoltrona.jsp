@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="fac" class="Controle.Usuario"/>
+<jsp:useBean id="fac" class="Controle.Poltrona"/>
 <!DOCTYPE html>
 
  <script type="text/JavaScript">
@@ -17,7 +17,7 @@
     <body>
         <h1>Cadastro efetuado com sucesso</h1>
         <hr>
-        <h2 hidden><%=fac.cadastrarUsuario(request)%></h2>
+        <h2 hidden><%=fac.cadastroPoltronas(request)%></h2>
         
     </body>
 </html>

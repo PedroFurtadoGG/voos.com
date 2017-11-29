@@ -19,11 +19,12 @@ public class PoltronaDAO extends Conexao{
     public void cadastroPoltronas(Poltronas p) throws Exception{
         OpenDatabase();
         
-        SQL = "INSERT INTO poltronas(status,tipo,nome) VALUES (?,?,?)";
+        SQL = "INSERT INTO poltronas(status,tipo,nome, id_aviao) VALUES (?,?,?,?)";
         ps = con.prepareStatement(SQL);
         ps.setString(1, p.getStatus()); 
         ps.setString(2, p.getTipo());
         ps.setString(3, p.getNome());
+        ps.setLong(4, p.getId_aviao());
         ps.execute();
         CloseDatabase();
                 

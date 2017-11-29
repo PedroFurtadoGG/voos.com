@@ -8,7 +8,6 @@ package persistencia;
 import Conexao.Conexao;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Poltronas;
 import modelo.Voos;
 
 /**
@@ -17,16 +16,19 @@ import modelo.Voos;
  */
 public class VoosDAO extends Conexao{
     
-   public void cadastroVoo(Voos v) throws Exception{
-        OpenDatabase();
-        
-        SQL = "INSERT INTO voos(status) VALUES (?)";
-        ps = con.prepareStatement(SQL);
-        ps.setString(1, v.getStatus());
-        ps.execute();
-        CloseDatabase();
-                
+  
+   
+   public void cadastroVoo(Voos u) throws Exception{
+       OpenDatabase();
+       SQL = "INSERT INTO voos(status, id_aviao)"        
+               + "VALUES(?, ?)";
+       ps = con.prepareStatement(SQL);
+       ps.setString(1, u.getStatus());
+       ps.setLong(2, u.getId_aviao());
+       ps.execute();
+       CloseDatabase();
     }
+    
     
     public Voos consultarvoos(long id_voo) throws Exception{
         OpenDatabase();
