@@ -14,14 +14,15 @@ import modelo.Aeroportos;
  */
 public class AeroportosDAO extends Conexao {
    
-    public void cadastraAeroporto(Aeroportos a) throws Exception{
+    public void cadastrarAeroporto(Aeroportos a) throws Exception{
         
         OpenDatabase();
-        SQL = "INSERT INTO aeroporotos(link_localizacao, nome)"
-                + "VALUES (?,?)"; 
+        SQL = "INSERT INTO aeroporotos(nome, link_localizacao, id_cidade)"
+                + "VALUES (?,?,?)"; 
         ps = con.prepareStatement(SQL);
-        ps.setString(1, a.getLink_localizacao());
-        ps.setString(2, a.getNome());
+        ps.setString(1, a.getNome());
+        ps.setString(2, a.getLink_localizacao());
+        ps.setLong(3, a.getId_cidade());
         ps.execute();
         CloseDatabase();
         
@@ -56,9 +57,9 @@ public class AeroportosDAO extends Conexao {
         while(rs.next()){
             Aeroportos a = new Aeroportos();
             a.setId_aeroporto(rs.getLong("id_aeroporto"));
-            a.setId_cidade(rs.getLong("id_cidade"));
-            a.setLink_localizacao(rs.getString("link_localizacao"));
             a.setNome(rs.getString("nome"));
+            a.setLink_localizacao(rs.getString("link_localizacao"));
+            a.setId_cidade(rs.getLong("id_cidade"));
             
             listaAeroportos.add(a);
         }

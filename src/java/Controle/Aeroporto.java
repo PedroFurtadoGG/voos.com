@@ -14,24 +14,25 @@ import persistencia.AeroportosDAO;
  * @author Bruno
  */
 public class Aeroporto extends BaseGenerator {
-    public String cadastraAeroporto(HttpServletRequest req){
+    public String cadastrarAeroporto(HttpServletRequest req){
         try {
             
             String nome = req.getParameter("nome");
             String localizacao = req.getParameter("link_localizacao");
             String id_cidade = req.getParameter("id_cidade");
             
-            Aeroportos aero = new Aeroportos();
-            aero.setNome(nome);
-            aero.setLink_localizacao(localizacao);
-            aero.setId_cidade(Long.parseLong(id_cidade));
+            Aeroportos a = new Aeroportos();
+            a.setNome(nome);
+            a.setLink_localizacao(localizacao);
+            a.setId_cidade(Long.parseLong(id_cidade));
             
             AeroportosDAO dao = new AeroportosDAO();
-            dao.cadastraAeroporto(aero);
+            dao.cadastrarAeroporto(a);
             
             System.out.println("Aeroporto cadastrado");
             
             return "Sucesso aeroporto";
+            
         } catch (Exception e) {
             return "Exceção : "+e.getMessage();
         }

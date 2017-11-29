@@ -193,14 +193,14 @@ public class GeraHTML {
         for (Iterator it = lista.iterator(); it.hasNext();) {
            
             Aeroportos a = (Aeroportos) it.next();
-            Cidades c = (Cidades)it.next();
+            
             sb.append("<li>"
                     + "<span class='booking-item'>"
                     + "<div class='row'>"
                     + "<div class='col-md-3'>"
                     + " <div class='booking-item-car-img'>"
                     + "<h4>Aeroporto: "+ a.getNome()+"</h4>"
-                    + "<p class='booking-item-car-title'>Cidade :"+c.getNome() +"UF: " + c.getUf()+ "</p>"
+                    + "<p class='booking-item-car-title'>Cidade :"+a.getId_cidade()+"</p>"
                     + "</div>"
                     + "</div>"
                     + "<div class='col-md-6'>"
@@ -208,7 +208,8 @@ public class GeraHTML {
                     + "<div class='col-md8'>"
                     + "</div></div></div>"
                     + "<div class='col-md-3'><br>"
-                    + "<a href='formAtualizarAeroporto.jsp?id_cidade="+a.getId_aeroporto()+"' class='btn btn-primary'>Editar</a>"    
+                    + "<a href='formAtualizarAeroporto.jsp?id_aeroporto="+a.getId_aeroporto()+"' class='btn btn-primary'>Editar</a>" 
+                    + "<a href='actions/excluirAeroporto.jsp?id_aeroporto="+a.getId_aeroporto()+"' class='btn btn-primary'>Excluir</a>"         
                     + "</div></div></span</li>");
         }
         return sb.toString();
@@ -224,12 +225,18 @@ public class GeraHTML {
                 + "<input class='form-control' value='" + a.getNome()+ "' type='text' name='nome' />"
                 + "</div>"
                 + "<div class='form-group'>"
-                + "<label>UF</label>"
-                + "<select name='cidade' class='form-group'>"
-                        + "<c:forEach var='cidades' items='${req}'>"
-                        + "<option value='$cidades.id_aeroporto'</option>"
-                        + "</c:forEach>"
-                + "</select>"
+                + "<label>Cidade</label>"
+                + "<select name=\"idcidade\" class=\"form-control\"><option value=\"\"><---Select---></option>"
+                        + "<%\n"
+                        +"Class.forName(\"com.mysql.jdbc.Driver\").newInstance();\n" 
+                        +"String connectionURL = \"jdbc:mysql://localhost:3306/voos\";\n" 
+                        +"Connection connection= DriverManager.getConnection(connectionURL, \"root\", \"\");\n"
+                        +"PreparedStatement psmnt = connection.prepareStatement(\"select * from cidades \");\n"
+                        +"ResultSet results = psmnt.executeQuery();\n"
+                        +"while(results.next()){\n"
+                        +"String cidade = results.getString(2);\n"
+                        +"String idcidade = results.getString(1);\n"
+                        +"%>"
                 + "</div>"
                 + "<hr>"
                 + "<input type='submit' class='btn btn-primary' value='Salvar'>");

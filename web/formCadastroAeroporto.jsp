@@ -4,14 +4,17 @@
     Author     : Bruno
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.Connection"%>
 <jsp:useBean id="fac" class="Controle.Aviao"/>
 <%@include file="/commons/head.jsp" %>
 <body>
    <div class="global-wrap">
       <%@include file="/commons/header.jsp" %>
       <div class="container">
-         <h1 class="page-title">Cadastro de avião</h1>
+         <h1 class="page-title">Cadastro de Aeroporto</h1>
       </div>
       <div class="container">
          <div class="row">
@@ -25,14 +28,26 @@
                            <input class="form-control" required type="text" name="nome" />
                         </div>
                         <div class="form-group">
+                           <label>Localização</label>
+                           <input class="form-control" required type="text" name="localizacao" />
+                        </div> 
+                        <div class="form-group">
                            <label>Cidade</label>
-                           <select name="codcidade" class="form-control">
-                               <c:forEach cidades="${cidades}" var="cidade">
-                              <option value="AC">Acre</option>
-                              <option value="AL">Alagoas</option>
-                              <option value="AP">Amapá</option>
-                              <option value="AM">Amazonas</option>
-                           </select>
+                           <select name="idcidade" class="form-control"><option value="">Selecione...</option>
+                            <%
+                                Class.forName("com.mysql.jdbc.Driver").newInstance();
+                                String connectionURL = "jdbc:mysql://localhost:3306/voos";
+                                Connection connection= DriverManager.getConnection(connectionURL, "root", "");
+                                PreparedStatement psmnt = connection.prepareStatement("select * from cidades ");
+                                ResultSet results = psmnt.executeQuery();
+                                while(results.next()){
+                                
+                                String cidade = results.getString(3);
+                                String idcidade = results.getString(1);
+                            %>
+                            <option value="<%= idcidade %>"> <%=cidade%></option>
+                            <%} results.close(); psmnt.close(); %>
+                            </select><br>
                         </div>
                         <div>
                            <hr>

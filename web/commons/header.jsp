@@ -25,10 +25,17 @@
                </ul>
             </li>
             <li>
-               <a href="listaCidades.jsp">Cidades</a>
+               <a href="#">Cidades</a>
                <ul>
                   <li><a href="listaCidade.jsp">Listagem</a></li>
                   <li><a href="formCadastroCidade.jsp">Cadastro</a></li>
+               </ul>
+            </li>
+            <li>
+               <a href="#">Aeroportos</a>
+               <ul>
+                  <li><a href="listaAeroporto.jsp">Listagem</a></li>
+                  <li><a href="formCadastroAeroporto.jsp">Cadastro</a></li>
                </ul>
             </li>
             <% } %>
