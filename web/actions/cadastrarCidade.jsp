@@ -8,7 +8,7 @@
 <jsp:useBean id="fac" class="Controle.Cidade"/>
 <!DOCTYPE html>
 <script type="text/JavaScript">
-      setTimeout("location.href = 'http://localhost:8084/Voos.com/login.jsp';",1000);
+      setTimeout("location.href = 'http://localhost:8084/Voos.com/listaCidade.jsp';",1000);
  </script>
  
 <html>

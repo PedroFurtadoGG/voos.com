@@ -1,5 +1,10 @@
 package Html;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.List;
@@ -188,10 +193,11 @@ public class GeraHTML {
         return sb.toString();
     }
     
-     public String getListAeroportos(List lista){
+     public String getListAeroportos(List lista) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException{
         StringBuffer sb = new StringBuffer();
+        
         for (Iterator it = lista.iterator(); it.hasNext();) {
-           
+
             Aeroportos a = (Aeroportos) it.next();
             
             sb.append("<li>"
@@ -201,7 +207,20 @@ public class GeraHTML {
                     + " <div class='booking-item-car-img'>"
                     + "<h4>Nome: "+ a.getNome()+"</h4>"
                     + "<p class='booking-item-car-title'>Localização: "+a.getLink_localizacao()+"</p>"
-                    + "<p class='booking-item-car-title'>Cidade: "+a.getId_cidade()+"</p>"        
+                    + "<p class='booking-item-car-title'>Cidade: "+a.getId_cidade()+"</p>"
+//                            + "<%\n" +
+//"                                Class.forName('com.mysql.jdbc.Driver').newInstance();\n" +
+//"                                String connectionURL = 'jdbc:mysql://localhost:3306/voos';\n" +
+//"                                Connection connection= DriverManager.getConnection(connectionURL, 'root', '');\n" +
+//"                                PreparedStatement psmnt = connection.prepareStatement('select * from cidades ');\n" +
+//"                                ResultSet results = psmnt.executeQuery();\n" +
+//"                                while(results.next()){\n" +
+////"                                \n" +
+//"                                String cidade = results.getString(3);\n" +
+//"                                String idcidade = results.getString(1);\n" +
+//"                            %>"
+//                            + "value='<%= idcidade %>'> <%=cidade%>"
+//                            + "</p>"        
                     + "</div>"
                     + "</div>"
                     + "<div class='col-md-6'>"
@@ -212,9 +231,10 @@ public class GeraHTML {
                     + "<a href='formAtualizarAeroporto.jsp?id_aeroporto="+a.getId_aeroporto()+"' class='btn btn-primary'>Editar</a>" 
                     + "<a href='actions/excluirAeroporto.jsp?id_aeroporto="+a.getId_aeroporto()+"' class='btn btn-primary'>Excluir</a>"         
                     + "</div></div></span</li>");
-        }
+            }
         return sb.toString();
-    }
+        }
+     
      
      public String getFormAtualizarAeroporto(Aeroportos a) {
         StringBuffer sb = new StringBuffer();
