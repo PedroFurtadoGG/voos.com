@@ -27,6 +27,7 @@ public class UsuarioDAO extends Conexao {
         if(rs.next()){
             u.setEmail(rs.getString("email"));
             u.setTipo(rs.getString("tipo"));
+            u.setId_usuario(rs.getInt("id_usuario"));
         }
         return u;
         

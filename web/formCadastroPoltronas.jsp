@@ -3,7 +3,7 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
-<%@page import="Conexao.Conexao"
+<%@page import="Conexao.Conexao"%>
 <jsp:useBean id="fac" class="Controle.Voos"/>
 <%@include file="/commons/head.jsp" %>
 <body>
@@ -65,7 +65,7 @@
          <div class="row row-wrap">
             <div class="col-md-3">
                <a class="logo" href="index.html">
-               <img src="http://www.kanzenshuu.com/wp-content/themes/kanzenshuu/images/logo_rof.png?x66125" alt="Image Alternative text" title="Image Title" />
+               
                </a>
             </div>
          </div>

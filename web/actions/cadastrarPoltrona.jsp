@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 
  <script type="text/JavaScript">
-      setTimeout("location.href = '/Voos.com/login.jsp';",1500);
+      setTimeout("location.href = '/Voos.com/index.jsp';",1500);
  </script>
  
 <html>

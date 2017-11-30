@@ -22,17 +22,12 @@
                            <div class="form-group form-group-lg">
                               <label>De</label>
                               <select class="form-control">
-                                 <option value="volvo">Volvo</option>
-                                 <option value="saab">Saab</option>
-                                 <option value="mercedes">Mercedes</option>
-                                 <option value="audi">Audi</option>
+                                 <option value="">SELECIONE</option>
                               </select>
                               <label>Para</label>
                               <select class="form-control">
-                                 <option value="volvo">Volvo</option>
-                                 <option value="saab">Saab</option>
-                                 <option value="mercedes">Mercedes</option>
-                                 <option value="audi">Audi</option>
+                                 <option value="">SELECIONE</option>
+                                
                               </select>
                            </div>
                         </div>
@@ -95,7 +90,7 @@
          <div class="row row-wrap">
             <div class="col-md-3">
                <a class="logo" href="index.html">
-               <img src="http://www.kanzenshuu.com/wp-content/themes/kanzenshuu/images/logo_rof.png?x66125" alt="Image Alternative text" title="Image Title" />
+               
                </a>
             </div>
          </div>

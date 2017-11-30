@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="resources/css/icomoon.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/mystyles.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="resources/js/modernizr.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
  </head>

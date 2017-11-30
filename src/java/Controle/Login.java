@@ -6,10 +6,12 @@
 package Controle;
 
 import Html.GeraHTML;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import modelo.Usuario;
-import persistencia.UsuarioDAO;
 
 /**
  *
@@ -19,25 +21,25 @@ public class Login extends GeraHTML{
     
     public String efetuarLogin(HttpServletRequest req) {
         try {
+            
             String uEmail = req.getParameter("email");
             String uSenha = req.getParameter("senha");
             String sessao =  Double.toString(Math.random());
             
-            Usuario u = new Usuario();
-            u.setEmail(uEmail);
-            u.setSenha(uSenha);
-              
-            UsuarioDAO dao = new UsuarioDAO();
-            dao.efetuarLogin(uEmail, uSenha);
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+            String connectionURL = "jdbc:mysql://localhost:3306/voos";
+            Connection connection= DriverManager.getConnection(connectionURL, "root", "");
+            PreparedStatement psmnt = connection.prepareStatement("SELECT * FROM usuarios WHERE email = '"+uEmail+"' AND senha ='"+uSenha+"'");
+            ResultSet results = psmnt.executeQuery();
             HttpSession session = req.getSession();
-            session.setAttribute("sessao", sessao);
-            session.setAttribute("email", uEmail);
-            
-            if("admin@admin.com.br".equals(uEmail)){
-              session.setAttribute("tipo", "A");
-            } else{
-               session.setAttribute("tipo", "C"); 
+            while(results.next()){
+                
+                session.setAttribute("tipo", results.getString(5));
+                session.setAttribute("email", results.getString(2));
+                session.setAttribute("sessao", sessao);
             }
+            
+            
             return "Login efetuado com sucesso" + session;
 
         } catch (Exception ex) {

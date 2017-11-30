@@ -5,18 +5,16 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<jsp:useBean id="fac" class="Controle.Cidade"/>
+<jsp:useBean id="fac" class="Controle.Reserva"/>
 <!DOCTYPE html>
-<script type="text/JavaScript">
-      setTimeout("location.href = 'http://localhost:8084/Voos.com/listaCidade.jsp';",1000);
- </script>
- 
 <html>
-     
+      <script type="text/JavaScript">
+      setTimeout("location.href = '/Voos.com/index.jsp';",1500);
+ </script>
     <body>
         <h1>Cadastro efetuado com sucesso</h1>
         <hr>
-        <h2 hidden><%=fac.cadastrarCidade(request)%></h2>
+        <h2 hidden><%=fac.cadastrarReserva(request)%></h2>
         
     </body>
 </html>

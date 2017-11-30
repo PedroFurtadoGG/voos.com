@@ -23,7 +23,7 @@ public class Reservas {
     private long id_usuario;
     private long id_aeroporto;
     private long id_poltrona;
-    private Date hr_embarque;
+    private String hr_embarque;
     
     
     /**
@@ -160,14 +160,14 @@ public class Reservas {
     /**
      * @return the hr_embarque
      */
-    public Date getHr_embarque() {
+    public String getHr_embarque() {
         return hr_embarque;
     }
 
     /**
      * @param hr_embarque the hr_embarque to set
      */
-    public void setHr_embarque(Date hr_embarque) {
+    public void setHr_embarque(String hr_embarque) {
         this.hr_embarque = hr_embarque;
     }
 

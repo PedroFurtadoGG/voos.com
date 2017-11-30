@@ -4,9 +4,7 @@
       <div class="nav">
          <ul class="slimmenu">
             <li>
-               <a class="logo" href="index.jsp">
-               <img src="http://www.kanzenshuu.com/wp-content/themes/kanzenshuu/images/logo_rof.png?x66125" alt="Image Alternative text" title="Image Title" />
-               </a>
+               <a class="logo" href="index.jsp">Home</a>
             </li>
             <!-- Esse if faz o filtro por tipo -->
             <% if ("A".equals(sessionTipo)) {  %>
@@ -34,16 +32,24 @@
             <% } %>
             <% if (sessionSessao != null) {  %>
             <li>
+               <a href="#">Reservas</a>
+               <ul>
+                  <li><a href="formReserva.jsp">Reservar</a></li>
+               </ul>
+            </li>
+            <li>
                <a href="#"><%= sessionEmail %></a>
                <ul>
                   <li><a href="actions/efetuarLogout.jsp">Logout</a></li>
                </ul>
             </li>
+            
             <% } else { %>
             <li>
                <a href="login.jsp">Login/Registrar </a>
             </li>
             <% }%>
+            
          </ul>
       </div>
    </div>

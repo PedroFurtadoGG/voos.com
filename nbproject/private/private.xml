@@ -2,18 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/persistencia/PoltronaDAO.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/modelo/Reservas.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/persistencia/CidadeDAO.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/persistencia/AeroportosDAO.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/persistencia/VoosDAO.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/Conexao/Conexao.java</file>
-            <file>file:/C:/Users/Bruno/Documents/NetBeansProjects/voos.com/src/java/persistencia/ReservasDAO.java</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/efetuarLogin.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/excluirAviao.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/efetuarLogout.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/cadastrarPoltrona.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/cadastrarAviao.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/cadastrarCidade.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/cadastrarVoo.jsp</file>
+            <file>file:/C:/Users/Lenovo/Documents/NetBeansProjects/voos.com/web/actions/cadastrarReserva.jsp</file>
         </group>
-=======
-        <group/>
->>>>>>> 685f64268b521f943f0a2b22d23ac9206615880d
     </open-files>
 </project-private>

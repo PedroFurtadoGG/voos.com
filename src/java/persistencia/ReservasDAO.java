@@ -18,8 +18,8 @@ public class ReservasDAO extends Conexao {
     
     public void cadastrarReserva(Reservas r) throws Exception{
         OpenDatabase();
-        SQL = "INSERT INTO reservas (classe, valor, status, data_ida, data_volta, qtde, id_usuario, id_aeroporto, id_poltrona, hr_embraque)"
-                + "VALUES (?,?,?,?,?,?,?,?,?,?)";
+        SQL = "INSERT INTO reservas (classe, valor, status, data_ida, data_volta, id_usuario, id_aeroporto, id_poltrona, hr_embraque)"
+                + "VALUES (?,?,?,?,?,?,?,?,?)";
         
         ps = con.prepareStatement(SQL);
         
@@ -28,11 +28,10 @@ public class ReservasDAO extends Conexao {
         ps.setString(3, r.getStatus());
         ps.setDate(4, r.getData_ida());
         ps.setDate(5, r.getData_volta());
-        ps.setInt(6, r.getQtde());
-        ps.setLong(7, r.getId_usuario());
-        ps.setLong(8, r.getId_aeroporto());
-        ps.setLong(9, r.getId_poltrona());
-        ps.setDate(10, r.getHr_embarque());
+        ps.setLong(6, r.getId_usuario());
+        ps.setLong(7, r.getId_aeroporto());
+        ps.setLong(8, r.getId_poltrona());
+        ps.setString(9, r.getHr_embarque());
         
         ps.execute();
         CloseDatabase();
@@ -56,7 +55,7 @@ public class ReservasDAO extends Conexao {
         ps.setLong(7, r.getId_usuario());
         ps.setLong(8, r.getId_aeroporto());
         ps.setLong(9, r.getId_poltrona());
-        ps.setDate(10, r.getHr_embarque());
+        ps.setString(10, r.getHr_embarque());
         
         ps.execute();
         CloseDatabase();
@@ -92,7 +91,7 @@ public class ReservasDAO extends Conexao {
            r.setId_usuario(rs.getLong("id_usuario"));
            r.setId_aeroporto(rs.getLong("id_aeroporto"));
            r.setId_poltrona(rs.getLong("id_poltrona"));
-           r.setHr_embarque(rs.getDate("hr_embarque"));
+           r.setHr_embarque(rs.getString("hr_embarque"));
         }
        
        CloseDatabase();
@@ -121,7 +120,7 @@ public class ReservasDAO extends Conexao {
            r.setId_usuario(rs.getLong("id_usuario"));
            r.setId_aeroporto(rs.getLong("id_aeroporto"));
            r.setId_poltrona(rs.getLong("id_poltrona"));
-           r.setHr_embarque(rs.getDate("hr_embarque"));
+           r.setHr_embarque(rs.getString("hr_embarque"));
         }
         CloseDatabase();
         return r;
