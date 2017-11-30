@@ -29,11 +29,11 @@
                         </div>
                         <div class="form-group">
                            <label>Localização</label>
-                           <input class="form-control" required type="text" name="localizacao" />
+                           <input class="form-control" required type="text" name="link_localizacao" />
                         </div> 
                         <div class="form-group">
                            <label>Cidade</label>
-                           <select name="idcidade" class="form-control"><option value="">Selecione...</option>
+                           <select name="id_cidade" class="form-control"><option value="">Selecione...</option>
                             <%
                                 Class.forName("com.mysql.jdbc.Driver").newInstance();
                                 String connectionURL = "jdbc:mysql://localhost:3306/voos";

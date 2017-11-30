@@ -18,12 +18,12 @@ public class Aeroporto extends BaseGenerator {
         try {
             
             String nome = req.getParameter("nome");
-            String localizacao = req.getParameter("link_localizacao");
+            String link_localizacao = req.getParameter("link_localizacao");
             String id_cidade = req.getParameter("id_cidade");
             
             Aeroportos a = new Aeroportos();
             a.setNome(nome);
-            a.setLink_localizacao(localizacao);
+            a.setLink_localizacao(link_localizacao);
             a.setId_cidade(Long.parseLong(id_cidade));
             
             AeroportosDAO dao = new AeroportosDAO();

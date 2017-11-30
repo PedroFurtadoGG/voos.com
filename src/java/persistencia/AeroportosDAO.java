@@ -17,7 +17,7 @@ public class AeroportosDAO extends Conexao {
     public void cadastrarAeroporto(Aeroportos a) throws Exception{
         
         OpenDatabase();
-        SQL = "INSERT INTO aeroporotos(nome, link_localizacao, id_cidade)"
+        SQL = "INSERT INTO aeroportos(nome, link_localizacao, id_cidade)"
                 + "VALUES (?,?,?)"; 
         ps = con.prepareStatement(SQL);
         ps.setString(1, a.getNome());
