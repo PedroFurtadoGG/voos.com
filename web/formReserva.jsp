@@ -151,13 +151,13 @@
                         <div class="form-group">
                            <label>Poltrona</label>
                            <select name="id_poltrona" class="form-control">
-                              <%
+                                <%
                                  PreparedStatement ps2 = connection.prepareStatement("SELECT id_poltrona,nome FROM poltronas");
                                  ResultSet results2 = ps2.executeQuery();
                                  while(results2.next()){
                                  String id_poltrona = results2.getString(1);
                                  String nome = results2.getString(2);
-                                 %>
+                                %>
                               <option value="<%= id_poltrona %>"><%=nome%></option>
                               <%} results2.close(); psmnt.close(); %>
                            </select>
@@ -166,7 +166,7 @@
                         <div class="form-group">
                            <label>Hora Embarque</label>
                            <input class="form-control" required type="text" name="hr_embarque"/>
-                           <input class="form-control" name="status" value="X" hidden disabled/>
+                           <input class="form-control" name="status" value="pendente" type="hidden" disabled/>
                         </div>
                         <div>
                            <hr>
